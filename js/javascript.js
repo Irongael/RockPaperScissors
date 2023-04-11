@@ -41,7 +41,48 @@ let playSel = prompt("Select Rock Paper or Scissors to play!", "Rock");
 
 function playRound(playerSelection, compSelection)
 {
-
+    if(compSelection == 0 && (playerSelection.toUpperCase()) == "SCISSORS") 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("You Lose!");
+    }
+    else if(compSelection == 0 && (playerSelection.toUpperCase()) == "PAPER") 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("You Win!");
+    }
+    else if(compSelection == 1 && (playerSelection.toUpperCase()) == "ROCK") 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("You Lose!");
+    }
+    else if(compSelection == 1 && (playerSelection.toUpperCase()) == "SCISSORS") 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("You Win!");
+    }
+    else if(compSelection == 2 && (playerSelection.toUpperCase()) == "PAPER") 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("You Lose!");
+    }
+    else if(compSelection == 2 && (playerSelection.toUpperCase()) == "ROCK") 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("You Win!");
+    }
+    else 
+    {
+        decodeChoice(compSelection);
+        console.log("You Picked " + playerSelection);
+        console.log("No Winner Play Again!")
+    }
 }
 
-decodeChoice(compSel);
+playRound(playSel, compSel);
