@@ -94,30 +94,27 @@ function game()
     let playScore = 0;
     let compScore = 0;
     let gameCount = 0;
+    
+    let compSel = getComputerChoice();
+    let playSel = prompt("Select Rock Paper or Scissors to play!", "Enter Choice");
+    let result = playRound(playSel, compSel);
 
-    while(gameCount < 5 && compScore < 3 && playScore < 3)
+    if(result == 0)
     {
-        let compSel = getComputerChoice();
-        let playSel = prompt("Select Rock Paper or Scissors to play!", "Enter Choice");
-        let result = playRound(playSel, compSel);
-
-        if(result == 0)
-        {
-            compScore++;
-            gameCount++;
-        }
-        else if(result == 1)
-        {
-            playScore++;
-            gameCount++;
-        }
-        else
-        {
-            console.log("No Winner Play Again!")
-        }
-        console.log("Player Score: " + playScore);
-        console.log("Computer Score: " + compScore);
+        compScore++;
+        gameCount++;
     }
+    else if(result == 1)
+    {
+        playScore++;
+        gameCount++;
+    }
+    else
+    {
+        console.log("No Winner Play Again!")
+    }
+    console.log("Player Score: " + playScore);
+    console.log("Computer Score: " + compScore);
 
     if(playScore >= 3)
     {
