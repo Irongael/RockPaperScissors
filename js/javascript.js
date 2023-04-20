@@ -1,3 +1,8 @@
+let playScore = 0;
+let compScore = 0;
+let playerScore = document.querySelector('#playerScore');
+let computerScore = document.querySelector('#compScore');
+
 function getComputerChoice() 
 { //uses Math.random to assign a choice for the computer player
     let compNum = Math.random();
@@ -91,22 +96,21 @@ function playRound(playerSelection, compSelection)
 
 function game(playSel) 
 {
-    let playScore = 0;
-    let compScore = 0;
-    let gameCount = 0;
-    
     let compSel = getComputerChoice();
     let result = playRound(playSel, compSel);
+
+    playerScore.textContent = playScore;
+    computerScore.textContent = compScore;
 
     if(result == 0)
     {
         compScore++;
-        gameCount++;
+        computerScore.textContent = compScore;
     }
     else if(result == 1)
     {
         playScore++;
-        gameCount++;
+        playerScore.textContent = playScore;
     }
     else
     {
@@ -115,17 +119,22 @@ function game(playSel)
     console.log("Player Score: " + playScore);
     console.log("Computer Score: " + compScore);
 
-    if(playScore >= 3)
+    if(playScore >= 5)
     {
         console.log("Player Wins Best of 5!")
+        playScore = 0;
+        compScore = 0;
+        
     }
-    else if(compScore >= 3)
+    else if(compScore >= 5)
     {
         console.log("Computer Wins Best of 5! Better Luck Next Time!")
+        playScore = 0;
+        compScore = 0;
     }
     else 
     {
-        console.log("nobody won interesting...")
+        console.log("nobody yet keep playing til a player gets 5 wins!")
     }
 }
 
@@ -145,3 +154,6 @@ const scissorBtn = document.querySelector('#scissorBtn');
 scissorBtn.addEventListener('click', () => {
     game('scissors')
 });
+
+
+
