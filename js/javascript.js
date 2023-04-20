@@ -89,14 +89,13 @@ function playRound(playerSelection, compSelection)
     }
 }
 
-function game() 
+function game(playSel) 
 {
     let playScore = 0;
     let compScore = 0;
     let gameCount = 0;
     
     let compSel = getComputerChoice();
-    let playSel = prompt("Select Rock Paper or Scissors to play!", "Enter Choice");
     let result = playRound(playSel, compSel);
 
     if(result == 0)
@@ -130,4 +129,19 @@ function game()
     }
 }
 
-game();
+
+
+const rockBtn = document.querySelector('#rockBtn');
+rockBtn.addEventListener('click', () => {
+    game('rock')
+});
+
+const paperBtn = document.querySelector('#paperBtn');
+paperBtn.addEventListener('click', () => {
+    game('paper')
+});
+
+const scissorBtn = document.querySelector('#scissorBtn');
+scissorBtn.addEventListener('click', () => {
+    game('scissors')
+});
