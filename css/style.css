@@ -5,6 +5,8 @@
 .pics {
     height: 200px;
     width: 200px;
+    border: solid black;
+    border-radius: 12%;
 }
 
 .imgDiv {
@@ -13,7 +15,17 @@
     align-items: center;
 }
 
-.rockDiv {
+.choiceDiv {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    margin-top: 20px;
+    width: 90px;
+}
+
+#gameTitle {
+    margin-bottom: 100px;
 }
