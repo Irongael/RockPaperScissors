@@ -6,3 +6,14 @@
     height: 200px;
     width: 200px;
 }
+
+.imgDiv {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rockDiv {
+    display: flex;
+    flex-direction: column;
+}
