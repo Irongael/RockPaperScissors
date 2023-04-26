@@ -29,3 +29,32 @@
 #gameTitle {
     margin-bottom: 100px;
 }
+
+.inline {
+    display: inline;
+}
+
+.scoreDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.scoreBox {
+    border: solid black;
+    padding: 10px 50px 10px 10px;
+}
+
+.resultDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#winner {
+    margin-top: 50px;
+}

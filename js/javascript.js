@@ -1,7 +1,9 @@
-let playScore = 0;
+let playScore = 0; 
 let compScore = 0;
-let playerScore = document.querySelector('#playerScore');
+let playerScore = document.querySelector('#playerScore'); 
 let computerScore = document.querySelector('#compScore');
+let playerSelect = document.querySelector('#playerSelect');
+let computerSelect = document.querySelector('#compSelect');
 
 function getComputerChoice() 
 { //uses Math.random to assign a choice for the computer player
@@ -25,19 +27,19 @@ function decodeChoice(number) {
     //decodes what the random compchoice is "rock paper or scissors"
     if(number == 0) 
     {
-        console.log("Computer Player Chooses Rock!");
+        computerSelect.textContent = "Rock";
     }
     else if(number == 1) 
     {
-        console.log("Computer Player Chooses Paper!");
+        computerSelect.textContent = "Paper";
     }
     else if(number == 2) 
     {
-        console.log("Computer Player Chooses Scissors!");
+        computerSelect.textContent = "Scissors";
     }
     else 
     {
-        console.log("Computer Player Chooses a Gun?! Something is Wrong.");
+        computerSelect.textContent = "Gun? WTF";
     }
 }
 
@@ -47,49 +49,36 @@ function playRound(playerSelection, compSelection)
     if(compSelection == 0 && (playerSelection.toUpperCase()) == "SCISSORS") 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
-        console.log("You Lose!");
         return 0; //returns 0 for a loss
     }
     else if(compSelection == 0 && (playerSelection.toUpperCase()) == "PAPER") 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
-        console.log("You Win!");
         return 1; //returns 1 for a win
     }
     else if(compSelection == 1 && (playerSelection.toUpperCase()) == "ROCK") 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
-        console.log("You Lose!");
         return 0;
     }
     else if(compSelection == 1 && (playerSelection.toUpperCase()) == "SCISSORS") 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
-        console.log("You Win!");
         return 1;
     }
     else if(compSelection == 2 && (playerSelection.toUpperCase()) == "PAPER") 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
-        console.log("You Lose!");
         return 0;
     }
     else if(compSelection == 2 && (playerSelection.toUpperCase()) == "ROCK") 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
-        console.log("You Win!");
         return 1;
     }
     else 
     {
         decodeChoice(compSelection);
-        console.log("You Picked " + playerSelection);
         return 2; //returns 2 for inconclusive
     }
 }
@@ -98,10 +87,11 @@ function game(playSel)
 {
     let compSel = getComputerChoice();
     let result = playRound(playSel, compSel);
-
+    //sets the scores at the begining of each game to make sure score properly displayed
     playerScore.textContent = playScore;
     computerScore.textContent = compScore;
 
+    //tests to see who wins based off playRound function and updates scores accordingly
     if(result == 0)
     {
         compScore++;
@@ -114,45 +104,50 @@ function game(playSel)
     }
     else
     {
-        console.log("No Winner Play Again!")
+        console.log("nobody won")
     }
-    console.log("Player Score: " + playScore);
-    console.log("Computer Score: " + compScore);
+    //for displaying the winner
+    let winner = document.querySelector('#winner');
 
     if(playScore >= 5)
     {
-        console.log("Player Wins Best of 5!")
+        winner.textContent = "First to 5 wins! Player Wins!";
         playScore = 0;
         compScore = 0;
         
     }
     else if(compScore >= 5)
     {
-        console.log("Computer Wins Best of 5! Better Luck Next Time!")
+        winner.textContent = "First to 5 wins! Computer Wins!";
         playScore = 0;
         compScore = 0;
     }
     else 
     {
-        console.log("nobody yet keep playing til a player gets 5 wins!")
+        console.log("nobody yet keep playing til a player gets 5 wins!");
+        winner.textContent = " ";
     }
 }
 
 
-
+//event listeners for player selection
 const rockBtn = document.querySelector('#rockBtn');
 rockBtn.addEventListener('click', () => {
+    //runs game with proper choice and sets the correct playersel to be displayed
     game('rock')
+    playerSelect.textContent = "Rock";
 });
 
 const paperBtn = document.querySelector('#paperBtn');
 paperBtn.addEventListener('click', () => {
     game('paper')
+    playerSelect.textContent = "Paper";
 });
 
 const scissorBtn = document.querySelector('#scissorBtn');
 scissorBtn.addEventListener('click', () => {
     game('scissors')
+    playerSelect.textContent = "Scissors";
 });
 
 
